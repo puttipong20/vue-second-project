@@ -10,9 +10,16 @@
           >Delete</v-btn
         ></v-subheader
       >
-      <div>All : {{check}} $.<v-btn class="btn1" @click="buy" color="#FA460D">BUY</v-btn></div>
+      <div>
+        All : {{ check }} $.<v-btn class="btn1" @click="buy" color="#FA460D"
+          >BUY</v-btn
+        >
+      </div>
       <div class="buy">
-        <strong>{{ this.details[id-1].name}} ---- Quantity : {{ quantity }}</strong>
+        <strong
+          >{{ this.details[id - 1].name }} ---- Quantity :
+          {{ quantity }}</strong
+        >
       </div>
       <v-card-text>
         <v-row>
@@ -55,12 +62,12 @@ export default {
       min: 1,
       max: 10,
       quantity: 1,
-      price:0,
-      sum:0,
+      price: 0,
+      sum: 0,
       Bill: [],
       i: 0,
       j: 0,
-      check:0,
+      check: 0,
     };
   },
   methods: {
@@ -71,22 +78,23 @@ export default {
           this.sum = this.quantity * this.details[this.i].price;
           this.Bill.push({
             name: this.details[this.i].name,
-            price:this.details[this.i].price,
+            price: this.details[this.i].price,
             quantity: this.quantity,
             sum: this.sum,
           });
         }
       }
-      this.check+=this.sum
-      this.sum=0;
+      this.check += this.sum;
+      this.sum = 0;
       this.quantity = 1;
     },
     Del(m) {
       this.Bill.splice(m, 1);
     },
-    buy(){
-      this.Bill=[];
-    }
+    buy() {
+      this.Bill = [];
+      this.check = 0;
+    },
   },
 };
 </script>
@@ -108,10 +116,10 @@ export default {
 .buy {
   text-align: left;
 }
-.container1{
-  border:2px solid black;
+.container1 {
+  border: 2px solid black;
 }
-.btn1{
+.btn1 {
   margin-left: 20px;
 }
 </style>
